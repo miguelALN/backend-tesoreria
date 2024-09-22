@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-//Cambio
+//Cambio 2
 @Entity
 @Table(name = "doctos_digitalizado", schema = "public", uniqueConstraints = {})
 @SequenceGenerator(name = "doctosDigitalizadoSeq" , sequenceName = "doctos_digitalizado_doctos_digitalizado_id_seq", allocationSize = 1)

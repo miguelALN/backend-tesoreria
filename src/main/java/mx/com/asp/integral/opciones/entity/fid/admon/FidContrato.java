@@ -23,8 +23,8 @@ public class FidContrato {
     @Column(name = "num_contrato", unique = true, nullable = false, insertable = true, updatable = true)
     private String numContrato;
 
-   // @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER, targetEntity = FidSolicitudesAplicacionesDetalles.class, mappedBy = "numContrato")
-   // private Set<FidSolicitudesAplicacionesDetalles> fidSolicitudesAplicacionesDetallesCollection = new HashSet<FidSolicitudesAplicacionesDetalles>(0);
+    @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER, targetEntity = FidSolicitudesAplicacionesDetalles.class, mappedBy = "numContrato")
+    private Set<FidSolicitudesAplicacionesDetalles> fidSolicitudesAplicacionesDetallesCollection = new HashSet<FidSolicitudesAplicacionesDetalles>(0);
 
     @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER, targetEntity = FidMovimiento.class, mappedBy="fidContrato")
     private Set<FidMovimiento> fidMovimientoCollection = new HashSet<FidMovimiento>(0);
@@ -33,9 +33,9 @@ public class FidContrato {
     @JoinColumn(name = "fideicomiso_id", referencedColumnName = "fideicomiso_id", unique = false, nullable = true, insertable = true, updatable = true)
     private FidCatFideicomiso fideicomiso;
 
-    //@ManyToOne(cascade = {},targetEntity = FidSolicitante.class)
-    //@JoinColumn(name = "solicitante_id", referencedColumnName="numero", unique = false, nullable = true, insertable = true, updatable = true)
-    //private FidSolicitante solicitante;
+    @ManyToOne(cascade = {},targetEntity = FidSolicitante.class)
+    @JoinColumn(name = "solicitante_id", referencedColumnName="numero", unique = false, nullable = true, insertable = true, updatable = true)
+    private FidSolicitante solicitante;
 
     @ManyToOne(cascade = {},targetEntity = FidRendimiento.class)
     @JoinColumn(name = "rendimiento_id", unique = false, nullable = true, insertable = true, updatable = true)

@@ -61,7 +61,7 @@ public class Juicio {
     @Column(name = "fecha_modificacion", unique = false, nullable = false, insertable = true, updatable = true, length = 4)
     private Date fechaModificacion;
 
-    /*
+/*
     public Juicio clone(){
         Juicio tmp = new Juicio();
         tmp.setId(this.id);
@@ -83,7 +83,7 @@ public class Juicio {
 
         return tmp;
     }
-    */
+*/
     //@ManyToOne(cascade = {}, fetch = FetchType.EAGER , targetEntity=TipoGarantia.class)
     //@JoinColumn(name = "tipo_garantia_aplicada_id", unique = false, nullable = true, insertable = true, updatable = true)
    // private TipoGarantia tipoGarantiaAplicada;

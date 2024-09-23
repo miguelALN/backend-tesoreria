@@ -15,9 +15,9 @@ import java.util.Date;
 @NoArgsConstructor
 @Table(name = "fid_bitacoras")
 public class FidBitacora {
-    //@ManyToOne(cascade = {}, fetch = FetchType.EAGER,targetEntity = FidContrato.class)
-    //@JoinColumn(name = "num_contrato",unique = false, nullable = true, insertable = true, updatable = true)
-    //private String numContrato;
+    @ManyToOne(cascade = {}, fetch = FetchType.EAGER,targetEntity = FidContrato.class)
+    @JoinColumn(name = "num_contrato",unique = false, nullable = true, insertable = true, updatable = true)
+    private String numContrato;
     @Column(name = "fecha_corte",unique = false, nullable = true, insertable = true, updatable = true)
     @Temporal(TemporalType.DATE)
     private Date fechaCorte;

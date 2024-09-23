@@ -17,7 +17,6 @@ import java.util.Date;
 @SequenceGenerator(name = "FidCostoAdmonSec" , sequenceName = "fid_costos_admon_costo_admon_id_seq", allocationSize = 1)
 public class FidCostoAdmon {
 
-
     @Id
     @Column(name = "costo_admon_id", unique = true, nullable = false, insertable = true, updatable = true)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FidCostoAdmonSec")

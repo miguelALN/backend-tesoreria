@@ -57,7 +57,4 @@ public class FidMovimiento {
     private Date fechaModificacion;
     @Column(name = "modificado_por", unique = false, nullable = true, insertable = true, updatable = true)
     private Integer modificadoPor;
-
-
-
 }

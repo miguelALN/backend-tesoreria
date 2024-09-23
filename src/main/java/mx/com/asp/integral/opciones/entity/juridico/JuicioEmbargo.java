@@ -38,7 +38,6 @@ public class JuicioEmbargo {
     //@ManyToOne(cascade = {}, fetch = FetchType.EAGER , targetEntity=ConValores.class)
     //@JoinColumn(name = "depositario_id", unique = false, nullable = false, insertable = true, updatable = true)
     //private ConValores depositario;
-
     @Column(name = "observaciones", unique = false, nullable = false, insertable = true, updatable = true)
     private String observaciones;
     @Column(name = "valor", unique = false, nullable = true, insertable = true, updatable = true)

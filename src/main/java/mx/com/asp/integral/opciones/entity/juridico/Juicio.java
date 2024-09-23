@@ -14,6 +14,8 @@ import java.util.Date;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "juicios", schema = "public", uniqueConstraints = {})
+@SequenceGenerator(name="juicioSeq", sequenceName="juicios_juicio_id_seq", allocationSize = 1)
 public class Juicio {
 
     @Id
@@ -48,13 +50,49 @@ public class Juicio {
     //@ManyToOne(cascade = {}, fetch = FetchType.EAGER , targetEntity=JuicioCuatrimestre.class)
     //@JoinColumn(name = "juicios_cuatrimestre_id", unique = false, nullable = true, insertable = true, updatable = true)
     //private JuicioCuatrimestre juicioCuatrimestreId;
-
+    @Column(name = "creado_por", unique = false, nullable = false, insertable = true, updatable = true, precision = 6)
     private Long creadoPor;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "fecha_creacion", unique = false, nullable = false, insertable = true, updatable = true, length = 4)
     private Date fechaCreacion;
+    @Column(name = "modificado_por", unique = false, nullable = false, insertable = true, updatable = true, precision = 6)
     private Long modificadoPor;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "fecha_modificacion", unique = false, nullable = false, insertable = true, updatable = true, length = 4)
     private Date fechaModificacion;
+
+    /*
+    public Juicio clone(){
+        Juicio tmp = new Juicio();
+        tmp.setId(this.id);
+        tmp.setContrato(this.contrato);
+        tmp.setJuzgado(this.juzgado);
+        tmp.setExpediente(this.expediente);
+        tmp.setTipoJuicio(this.tipoJuicio);
+        tmp.setLocalidad(this.localidad);
+        tmp.setFechaDemanda(this.fechaDemanda);
+        tmp.setMontoDemanda(this.montoDemanda);
+        tmp.setEstatus(this.estatus);
+        tmp.setObservaciones(this.observaciones);
+        tmp.setSentencia(this.sentencia);
+        tmp.setJuicioCuatrimestreId(this.juicioCuatrimestreId);
+        tmp.setCreadoPor(this.creadoPor);
+        tmp.setFechaCreacion(this.fechaCreacion);
+        tmp.setModificadoPor(this.modificadoPor);
+        tmp.setFechaModificacion(this.fechaModificacion);
+
+        return tmp;
+    }
+    */
+    //@ManyToOne(cascade = {}, fetch = FetchType.EAGER , targetEntity=TipoGarantia.class)
+    //@JoinColumn(name = "tipo_garantia_aplicada_id", unique = false, nullable = true, insertable = true, updatable = true)
    // private TipoGarantia tipoGarantiaAplicada;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "fecha_aplicacion_garantia", unique = false, nullable = true, insertable = true, updatable = true, length = 4)
     private Date fechaAplicacionGarantia;
+    //@ManyToOne(cascade = {}, fetch = FetchType.EAGER , targetEntity=JuicioCuatrimestre.class)
+    //@JoinColumn(name = "juicios_cuatrimestre_garantia_id", unique = false, nullable = true, insertable = true, updatable = true)
     //private JuicioCuatrimestre juicioCuatrimestreGarantia;
 
 }

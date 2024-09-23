@@ -9,6 +9,12 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.util.Date;
 
+
+@Entity
+@Data
+@Builder(toBuilder = true)
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "sol_garantes", schema = "public", uniqueConstraints = {})
 @SequenceGenerator(name="garantesSeq", sequenceName="sol_garantes_sec_seq", allocationSize = 1)
 public class Garante {
